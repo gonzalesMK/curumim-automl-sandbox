@@ -10,7 +10,6 @@ class Cache(Composer):
         settings = config['settings']
         engine = config['engine']
         if engine == "amnesia":
-            from paje.storage.mysql import MySQL
             self._storage = Amnesia(**settings)
         elif engine == "mysql":
             from paje.storage.mysql import MySQL
