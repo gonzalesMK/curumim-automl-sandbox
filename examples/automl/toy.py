@@ -39,18 +39,18 @@ def main():
         for k, v in arg.items():
             print(f'{k}={v}')
 
-        if 'storage' in arg:
-            if arg['storage'] == 'sqlite':
+        if 'cache' in arg:
+            if arg['cache'] == 'sqlite':
                 storage = {
                     'engine': 'sqlite',
                     'settings': {'db': arg['db']},
                     # 'nested': None,
                     # 'dump': False
                 }
-            elif arg['storage'] == 'amnesia':
+            elif arg['cache'] == 'amnesia':
                 storage = {'engine': 'amnesia', 'settings': {}}
             else:
-                raise Exception('Wrong storage', arg['storage'])
+                raise Exception('Wrong cache', arg['cache'])
         else:
             storage = {'engine': 'amnesia', 'settings': {}}
 
