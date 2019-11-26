@@ -3,9 +3,10 @@
 Install
 -------
 
+    sudo apt install python3.7-dev    # For Debian-like systems.
     git clone https://github.com/automated-data-science/curumim-automl-sandbox/
     cd curumim-automl-sandbox/
-    python3.6 -m venv venv
+    python3.7 -m venv venv
     source venv/bin/activate
     pip install -e .
     deactivate
