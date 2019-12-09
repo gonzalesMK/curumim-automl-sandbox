@@ -28,7 +28,7 @@ class RealHP(HyperParameter):
 
 class IntHP(HyperParameter):
     def sample(self):
-        return numpy.round(self.func())
+        return round(self.func())
 
 
 class FixedHP(HyperParameter):
