@@ -9,7 +9,7 @@ from paje.ml.element.modelling.supervised.regressor.regressor import Regressor
 class RIDGE(Regressor):
     def __init__(self, config, **kwargs):
         super().__init__(config, **kwargs)
-        self.model = Ridge()
+        self.model = Ridge(**self.param())
 
     @classmethod
     def cs_impl(cls):
