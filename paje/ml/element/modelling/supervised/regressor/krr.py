@@ -9,7 +9,7 @@ from paje.ml.element.modelling.supervised.regressor.regressor import Regressor
 class KRR(Regressor):
     def __init__(self, config, **kwargs):
         super().__init__(config, **kwargs)
-        self.model = KernelRidge()
+        self.model = KernelRidge(**self.param())
 
     @classmethod
     def cs_impl(cls):
