@@ -33,4 +33,4 @@ class IntHP(HyperParameter):
 
 class FixedHP(HyperParameter):
     def __init__(self, value):
-        super().__init__(lambda _: value)
+        super().__init__(lambda : value)

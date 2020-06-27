@@ -25,7 +25,7 @@ class NonIterable(Component):
         {self._ps}
         """
 
-    def apply(self, data=None):
+    def apply(self, data=None, **kwarg):
         """Todo the doc string
         """
         self.op = 'a'

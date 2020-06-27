@@ -19,6 +19,7 @@ from paje.base.noniterable import NonIterable
 from paje.util.misc import flatten, get_class
 
 
+
 class Composer(NonIterable, ABC):
     """Core Composer class.
     """
@@ -45,7 +46,9 @@ class Composer(NonIterable, ABC):
         """
 
         for component in self.components:
-            data = component.apply(data)
+            # Incluir aqui: 
+            # if component 
+            data = component.apply(data, components=self.components)
             if component.failed:
                 raise Exception('Applying subcomponent failed! ', component)
         self.model = self.components

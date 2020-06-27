@@ -3,10 +3,9 @@ from sklearn.tree import DecisionTreeClassifier
 from paje.searchspace.hp import CatHP, IntHP, RealHP
 from paje.searchspace.configspace import ConfigSpace
 from numpy.random import choice, uniform
-from paje.ml.element.modelling.supervised.classifier.classifier import Classifier
+from paje.ml.element.modelling.supervised.supervisedmodel import SupervisedModel
 
-
-class DT(Classifier):
+class DT(SupervisedModel):
     def __init__(self, config, **kwargs):
         super().__init__(config, **kwargs)
         self.model = DecisionTreeClassifier(**self.param())

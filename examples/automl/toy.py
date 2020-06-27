@@ -17,8 +17,9 @@ from paje.ml.element.preprocessing.unsupervised.feature.scaler.equalization impo
 from paje.ml.element.preprocessing.unsupervised.feature.scaler.standard import \
     Standard
 from paje.ml.metric.supervised.classification.mclassif import Metrics
+from paje.ml.element.preprocessing.supervised.feature.metaheuristic.BBH import BBH
 
-
+sys.argv = ['./examples/automl/toy.py', 'data=abalone3.arff', 'iter=30']
 def main():
     if len(sys.argv[1:]) < 1 or any(['=' not in k for k in sys.argv[1:]]):
         print('Usage: \npython toy.py data=/tmp/dataset.arff '
@@ -28,12 +29,17 @@ def main():
         arg = {tupl.split('=')[0]: tupl.split('=')[1] for tupl in sys.argv[1:]}
 
         custom = Seq.cs(config_spaces=[Equalization.cs(), Standard.cs()])
-        my_preprocessors = [custom,
-                            Equalization.cs(),
-                            Standard.cs(),
-                            RanOverSampler.cs(),
-                            RanUnderSampler.cs()]
-        my_modelers = [Any.cs(config_spaces=[DT.cs(), NB.cs()])]
+        my_preprocessors = [
+                            # custom,
+                            # Equalization.cs(),
+                            # Standard.cs(),
+                            # RanOverSampler.cs(),
+                            # RanUnderSampler.cs(),
+                            BBH.cs()]
+        my_modelers = [Any.cs(config_spaces=[
+            DT.cs(), 
+            #NB.cs()
+            ])]
         #, NBP.cs()])] # <- requires non negative X
 
         for k, v in arg.items():
