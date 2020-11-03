@@ -8,14 +8,19 @@ from functools import partial
 from paje.ml.element.modelling.supervised.supervisedmodel import SupervisedModel
 class MetaBase(Element, ABC):
     def apply_impl(self, data, **kwargs):
+        
         # self.model will be set in the child class
+        print("APPLY_IMPL MetaBase")
         for component in kwargs.get('components'):
             
             try:
-                if isinstance(component.components[0], SupervisedModel):
-                    self.model.estimator = component.components[0].model
-                    print("Set!")
+                if hasattr(component,'components'):
+                    if isinstance(component.components[0], SupervisedModel):
+                        self.model.estimator = component.components[0].model
+                        print("Set!")
             except Exception as e:
+                print("Erro em apply_impl ")
+                print(e)
                 pass
 
         if not self.model.estimator:
