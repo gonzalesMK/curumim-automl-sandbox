@@ -29,8 +29,8 @@ class BBH(MetaBase):
 
         hps = {
             # 'estimator': CatHP(choice, a=['DecisionTreeClassifier']),
-            'number_gen': IntHP(uniform, low=1, high=100),
-            'size_pop': IntHP(uniform, low=2, high=100),
+            'number_gen': IntHP(uniform, low=10, high=100),
+            'size_pop': IntHP(uniform, low=20, high=100),
             'verbose':   FixedHP(value=1),
             'test_size':   FixedHP(value=0.3),
             'repeat': FixedHP(value=1),
